@@ -6,13 +6,14 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
 @MappedSuperclass
 public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
-    @Getter @Setter
+    @Setter
     private long id;
 
     @Column(columnDefinition = "DATETIME", updatable = false, nullable = false)

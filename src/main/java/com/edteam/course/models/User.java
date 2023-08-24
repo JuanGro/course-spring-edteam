@@ -1,25 +1,24 @@
 package com.edteam.course.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 
+@Getter
 @Entity
 @Table(name = "user")
 @ToString
-@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class User extends BaseEntity {
 
     @JsonIgnore
     @Column(name = "password")
-    @Getter @Setter
+    @Setter
     private String password;
 
     @Column(name = "name")
@@ -42,15 +41,4 @@ public class User extends BaseEntity {
     @Getter @Setter
     private Date birthday;
 
-    public User() {
-
-    }
-
-    public User(long id, String name, String lastName, String phone, Date birthday) {
-        setId(id);
-        this.name = name;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.birthday = birthday;
-    }
 }
