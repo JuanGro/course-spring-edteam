@@ -1,41 +1,40 @@
 package com.edteam.course.controllers;
 
-import com.edteam.course.models.User;
-import com.edteam.course.services.UserService;
+import com.edteam.course.models.Permission;
+import com.edteam.course.services.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("permission")
+public class PermissionController {
     @Autowired
-    UserService service;
+    PermissionService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<User> getAll() {
+    List<Permission> getAll() {
         return service.getAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    User get(@PathVariable long id) {
+    Permission get(@PathVariable long id) {
         return service.get(id);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    User register(@RequestBody User user) {
-        return service.register(user);
+    Permission register(@RequestBody Permission permission) {
+        return service.register(permission);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    User update(@PathVariable long id, @RequestBody User user) {
-        return service.update(user);
+    Permission update(@PathVariable long id, @RequestBody Permission permission) {
+        return service.update(permission);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     void delete(@PathVariable long id) {
         service.delete(id);
     }
-
 }

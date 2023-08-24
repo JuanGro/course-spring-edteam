@@ -1,31 +1,31 @@
 package com.edteam.course.services;
 
-import com.edteam.course.dao.UserDao;
-import com.edteam.course.models.User;
+import com.edteam.course.dao.RoleDao;
+import com.edteam.course.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class RoleService {
     @Autowired
-    UserDao dao;
+    RoleDao dao;
 
-    public List<User> getAll() {
+    public List<Role> getAll() {
         return dao.getAll();
     }
 
-    public User get(long id) {
+    public Role get(long id) {
         return dao.get(id);
     }
 
-    public User register(User user) {
-        return dao.register(user);
+    public Role register(Role role) {
+        return dao.register(role);
     }
 
-    public User update(User user) {
-        return dao.update(user);
+    public Role update(Role role) {
+        return dao.update(role);
     }
 
     public void delete(long id) {

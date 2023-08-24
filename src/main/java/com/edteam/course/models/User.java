@@ -1,21 +1,19 @@
 package com.edteam.course.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Entity
 @Table(name = "user")
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class User extends BaseEntity {
-
     @JsonIgnore
     @Column(name = "password")
     @Setter
@@ -41,4 +39,8 @@ public class User extends BaseEntity {
     @Getter @Setter
     private Date birthday;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id")
+    private Role role;
 }
