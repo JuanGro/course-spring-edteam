@@ -14,27 +14,27 @@ public class RoleController {
     RoleService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<Role> getAll() {
+    public List<Role> getAll() {
         return service.getAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    Role get(@PathVariable long id) {
+    public Role get(@PathVariable long id) {
         return service.get(id);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    Role register(@RequestBody Role role) {
+    public Role register(@RequestBody Role role) {
         return service.register(role);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    Role update(@PathVariable long id, @RequestBody Role role) {
+    public Role update(@PathVariable long id, @RequestBody Role role) {
         return service.update(role);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    void delete(@PathVariable long id) {
+    public void delete(@PathVariable long id) {
         service.delete(id);
     }
 }

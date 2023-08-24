@@ -14,28 +14,27 @@ public class UserController {
     UserService service;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    List<User> getAll() {
+    public List<User> getAll() {
         return service.getAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    User get(@PathVariable long id) {
+    public User get(@PathVariable long id) {
         return service.get(id);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    User register(@RequestBody User user) {
-        return service.register(user);
+    public void register(@RequestBody User user) {
+        service.register(user);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    User update(@PathVariable long id, @RequestBody User user) {
+    public User update(@PathVariable long id, @RequestBody User user) {
         return service.update(user);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    void delete(@PathVariable long id) {
+    public void delete(@PathVariable long id) {
         service.delete(id);
     }
-
 }
